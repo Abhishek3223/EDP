@@ -1,18 +1,52 @@
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { COLORS, SIZES } from '../../constants';
+import { useState } from 'react';
+import { Stack, useRouter } from 'expo-router';
+import Welcome from '../../components/Welcome';
+import RecentActivity from '../../components/RecentActivity'
+import { StatusBar } from 'expo-status-bar';
 
 export default function TabOneScreen() {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      <View style={styles.container}>
-        <Text style={styles.title}>Tab One</Text>
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        <EditScreenInfo path="app/(tabs)/index.tsx" />
-      </View>
+
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerShadowVisible: false,
+          headerTitle: ""
+
+        }}
+
+      />
+
+      <ScrollView>
+        <View
+          style={{ flex: 1, padding: SIZES.medium }}>
+          <Welcome
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            handleClick={() => {
+              if (searchTerm) {
+                router.push(`/search/${searchTerm}`)
+              }
+              else {
+                alert("Search something!")
+              }
+            }}
+          />
+          <RecentActivity />
+        </View>
+
+      </ScrollView>
+
+
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({

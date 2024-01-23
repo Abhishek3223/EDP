@@ -71,7 +71,7 @@ export default function Upload() {
               flashMode={flashMode === "on" ? "on" : "off"}
               style={{ flex: 1 }}
               ratio={"16:9"}
-              ref={(r) => {
+              ref={(r: any) => {
                 camera = r
               }}
             >
