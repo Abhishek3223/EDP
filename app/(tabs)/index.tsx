@@ -23,6 +23,7 @@ export default function TabOneScreen() {
         }}
 
       />
+      <StatusBar style='none'/>
 
       <ScrollView>
         <View

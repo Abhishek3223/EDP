@@ -196,7 +196,7 @@ export default function Upload() {
       )
       }
 
-      <StatusBar style="auto" />
+      <StatusBar style="none" />
     </View >
   )
 }

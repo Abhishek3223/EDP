@@ -1,9 +1,10 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import { Pressable, StatusBar, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { COLORS } from '../../constants';
 
 
 function TabBarIcon(props: {
@@ -22,7 +23,8 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors['light'].tint,
         title: '',
-
+        
+        tabBarActiveBackgroundColor: COLORS.lightWhite,
       }}>
       <Tabs.Screen
         name="index"
@@ -46,16 +48,16 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="upload"
         options={{
-          title: 'Tab Two',
+          title: 'Upload',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="upload"
+        name="two"
         options={{
-          title: 'upload',
+          title: 'Settings',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />

@@ -45,8 +45,6 @@ export default function Report() {
                     <Image
                         source={images.topView}// Replace with your image URL
                         style={styles.image}
-                    // contentFit="contain"
-                    // transition={1000}
                     />
                     {/* <View style={[styles.dot, { left: `${dotCoordinates[0]}%`, top: `${dotCoordinates[1]}%` }]} /> */}
                     {dotsData.map((dot, index) => (
@@ -88,15 +86,12 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        width: '100%',
-        // height: '100%',
-        // resizeMode: 'cover',
+        width: '100%'
     },
     dot: {
         position: 'absolute',
         width: 10,
         height: 10,
         borderRadius: 5,
-        // backgroundColor: 'red', // Change the color as needed
     },
 });
